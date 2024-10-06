@@ -70,5 +70,14 @@ variable "forwarding_rule_name" {
  default = "gcpautoexample-forwarding-rule"
 }
 
-variable "health_check_name" {}
-variable "target_pool_name" {}
+variable "health_check_name" {
+    description = "The name for the load balancer health check"
+    type        = string
+    default = "gcpautoexample-health-check"
+  }
+
+variable "target_pool_name" {
+    description = "The name for the load balancer target pool"
+    type        = string
+    default = "gcpautoexample-target-pool"
+   }
