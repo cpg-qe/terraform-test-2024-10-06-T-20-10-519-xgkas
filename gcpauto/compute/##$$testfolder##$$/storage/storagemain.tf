@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "bucket_test" {
-  name                        = "${var.bucket_prefix}-${random_hex.bucket_suffix[count.index].result}"
+  name                        = "${var.bucket_prefix}-${random_id.bucket_suffix.hex}"
   location                    = var.location
   project                     = var.project_id
   storage_class               = var.storage_class
@@ -14,7 +14,6 @@ resource "google_storage_bucket" "bucket_test" {
   }
 }
 
-resource "random_hex" "bucket_suffix" {
-  count = var.bucket_count
-  length = 4  # Length of the random hex suffix
+resource "random_id" "bucket_suffix" {
+  byte_length = 4  # Adjust the length of the random string (in bytes)
 }
