@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "bucket_test" {
-  name                        = "${var.bucket_prefix}-${random_id.bucket_suffix.hex}"
+  name                        = "${var.bucket_name}-${random_id.bucket_suffix.hex}"
   location                    = var.location
   project                     = var.project_id
   storage_class               = var.storage_class
