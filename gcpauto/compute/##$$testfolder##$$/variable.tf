@@ -85,5 +85,5 @@ variable "health_check_name" {
 variable "target_pool_name" {
     description = "The name for the load balancer target pool"
     type        = string
-    default = "gcpautoexample-target-pool"
+    default = "gcpautotargetpool"
    }
