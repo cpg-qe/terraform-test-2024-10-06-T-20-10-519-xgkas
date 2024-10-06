@@ -34,13 +34,13 @@ module "loadbalancer" {
 }
 
 resource "google_compute_instance" "vm" {
-  name         = "example-instance"
+  name         = "${instance_name}-${random_id.bucket_suffix.hex}"
   machine_type = "e2-medium"
   zone         = var.gcp_zone
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-10"
+      image = "ubuntu-1804-bionic-v20220131"
     }
   }
 
@@ -79,4 +79,8 @@ provider "google" {
   region  = var.gcp_region
   zone    = var.gcp_zone
   credentials = var.credentials
+}
+
+resource "random_id" "bucket_suffix" {
+  byte_length = 4  # Adjust the length of the random string (in bytes)
 }
