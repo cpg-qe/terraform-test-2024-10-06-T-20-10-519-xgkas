@@ -8,7 +8,7 @@ resource "google_compute_http_health_check" "http_health_check" {
 }
 
 resource "google_compute_target_pool" "target_pool" {
-  name = "gcpautomtargetpool"+"${random_string.bucket_suffix.result}"
+  name = gcpautomtargetpool+"${random_string.bucket_suffix.result}"
 
   instances = var.instances
 
