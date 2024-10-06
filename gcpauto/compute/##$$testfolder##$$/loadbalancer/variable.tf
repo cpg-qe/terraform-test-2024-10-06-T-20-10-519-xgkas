@@ -19,7 +19,7 @@ variable "health_check_name" {
 variable "target_pool_name" {
   description = "The name of the target pool"
   type        = string
-  default     = "gcpautotargetpool"  # Default target pool name
+  default     = "gcpautotarget"  # Default target pool name
 }
 
 variable "instances" {
