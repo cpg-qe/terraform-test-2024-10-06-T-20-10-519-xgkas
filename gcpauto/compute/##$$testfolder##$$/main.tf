@@ -34,7 +34,7 @@ module "loadbalancer" {
 }
 
 resource "google_compute_instance" "vm" {
-  name         = "${instance_name}-${random_id.bucket_suffix.hex}"
+  name         = "${var.instance_name}-${random_id.bucket_suffix.hex}"
   machine_type = "e2-medium"
   zone         = var.gcp_zone
 
