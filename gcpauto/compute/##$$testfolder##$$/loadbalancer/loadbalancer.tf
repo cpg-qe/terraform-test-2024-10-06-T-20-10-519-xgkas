@@ -23,6 +23,9 @@ resource "google_compute_forwarding_rule" "forwarding_rule" {
   port_range = "80"
 }
 
-resource "random_id" "bucket_suffix" {
-  byte_length = 4  # Adjust the length of the random string (in bytes)
+resource "random_string" "bucket_suffix" {
+  length  = 3  # Adjust the length of the random string
+  upper   = false  # Set to true if you want uppercase letters
+  special = false  # Set to true if you want special characters
+  number  = false  # Set to true if you want numbers
 }
