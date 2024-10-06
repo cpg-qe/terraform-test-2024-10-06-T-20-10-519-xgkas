@@ -10,6 +10,12 @@ variable "subnet_name" {
  default = "gcpautoexample-subnet-09"
 }
 
+variable "instance_name"{
+    description = "The name of the compute instance"
+  type        = string
+  default = "gcpautoexample-instance"
+}
+
 variable "subnet_cidr" {
   description = "The CIDR block for the subnet"
   type        = string
