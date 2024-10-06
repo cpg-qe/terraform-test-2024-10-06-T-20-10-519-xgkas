@@ -1,12 +1,11 @@
 resource "google_compute_disk" "persistent_disk" {
-  name    = "${var.disk_name}-${random_hex.bucket_suffix[count.index].result}"
+  name    = "${var.disk_name}-${random_id.bucket_suffix.hex}"
   type    = var.disk_type
   zone    = var.zone
   project = var.project_id
   size    = var.disk_size_gb
 }
 
-resource "random_hex" "bucket_suffix" {
-  count = var.bucket_count
-  length = 4  # Length of the random hex suffix
+resource "random_id" "bucket_suffix" {
+  byte_length = 4  # Adjust the length of the random string (in bytes)
 }
